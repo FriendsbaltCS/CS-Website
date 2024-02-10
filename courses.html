@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Course Descriptions</title>
+    <style>
+        .card {
+          border: none;
+        }
+
+        body {
+          background-color: #000; /* Black background */
+          color: #fff; /* White text color */
+        }
+        .course-tile {
+            perspective: 1000px;
+            width: 300px;
+            height: 400px;
+            margin: 20px auto;
+            float: left;
+        }
+        .course-card {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        .course-card.flip {
+            transform: rotateY(180deg);
+        }
+        .course-front, .course-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+        .course-back {
+            transform: rotateY(180deg);
+            overflow-y: auto; /* Add this line to make it scrollable */
+            /*max-height: 350px; /* You can set a specific height based on your design */
+        }
+
+        /* Style for WebKit browsers like Chrome, Safari */
+        .course-back::-webkit-scrollbar {
+            width: 6px; /* Adjust the width of the scrollbar */
+        }
+
+        .course-back::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2); /* Color of the scroll thumb */
+        }
+
+        .course-back::-webkit-scrollbar-track {
+            background-color: rgba(0, 0, 0, 0.1); /* Color of the scroll track */
+        }
+
+        /* Style for Firefox */
+        .course-back {
+            scrollbar-width: thin; /* Make it thinner */
+            scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.1); /* Thumb and track color */
+        }
+
+        .card-img-top {
+          border-radius: 50%;
+          width: 100%;
+          max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Quaker Labs at FSB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto"> <!-- changed from ml-auto -->
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">QATNet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./courses.html">Course Guide</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./faculty.html">People</a>
+            </li>
+          </ul>
+          <div class="d-flex"> <!-- This div will align its content to the right -->
+            <a class="btn btn-primary" href="#">Sign In</a> <!-- Removed ml-auto -->
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+    <!-- Level 1 -->
+    <div class="container-fluid mt-4 bg-dark text-secondary py-5 text-center">
+      <div class="row">
+          <div class="col-lg-6 mx-auto">
+              <h1 class="display-5 fw-bold text-white">Level 1 Courses</h1>
+              <p class="fs-5 mb-4">
+                Level 1 courses introduce students to the 
+                fundamentals of coding through a variety of applications
+                in mathematics, science, and the arts. These courses take a
+                an exploratory and project-based approach. Students will learn
+                important computational thinking skills that will prepare
+                them for both Level 2 courses and further studies in other
+                disciplines.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <!-- Level 1 Course Cards -->
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <!-- Creative Coding -->
+            <div class="course-tile">
+                <div class="course-card">
+                    <div class="card course-front">
+                        <img class="card-img-top mx-auto d-block" src="./images/course1.jpg" alt="Abstract image of laptop with colorful digital cloud.">
+                        <h4>Creative Coding</h4>
+                        <p>&frac12; Credit</p>
+                        <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                    </div>
+                    <div class="card course-back">
+                        <p>Students in this course will investigate basic computer science concepts and learn how to program by making art. No previous programming experience is necessary. We will use Processing language to create interactive drawings and animations. We will use Arduino-based microcomputers, sensors, LEDs, cardboard, and other art supplies to create collaborative and individual projects that require participation from the audience. Possibilities include rovers, a petting zoo, arcade games, masks, puppets, a parade, and more. Students will follow an iterative design process to create three or four major projects per semester. Students will be assessed on their growth as programmers and makers, their artist habits of mind, and the quality of the products they create. Outside-of-class research and open-studio work time may be integral to completing this course.
+                        </p>
+                        <button class="btn btn-secondary flip-button">Back</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Data and Code -->
+            <div class="course-tile">
+              <div class="course-card">
+                  <div class="card course-front">
+                      <img class="card-img-top mx-auto d-block" src="./images/course2.jpg" alt="Abstract image of code with bright streaks.">
+                      <h4>Data and Code</h4>
+                      <p>&frac12; Credit</p>
+                      <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                  </div>
+                  <div class="card course-back">
+                      <p>Students of this course will be introduced to the fundamentals 
+                        of computer science, primarily using the Python programming
+                        language. Topics will include computational models, basic data
+                        structures, command sequences, algorithms, and more! This course
+                        takes a theoretical approach to coding and relies on several
+                        mathematical skills including basic arithmetic and elementary 
+                        algebra.</p>
+                      <button class="btn btn-secondary flip-button">Back</button>
+                  </div>
+              </div>
+            </div>
+            <!-- Physical Computing -->
+            <div class="course-tile">
+              <div class="course-card">
+                  <div class="card course-front">
+                      <img class="card-img-top mx-auto d-block" src="./images/course3.jpg" alt="An engineer working on a glowing circuit board.">
+                      <h4>Physical Computing</h4>
+                      <p>&frac12; Credit</p>
+                      <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                  </div>
+                  <div class="card course-back">
+                      <p>Students of physical computing will work to develop physical and hardware projects. Projects involve the use of 3D Printing, Arduinos, and other physical modeling equipment. Grading will be based on both the departmental competencies and the principles of modeling and design. This course takes a significantly more creative and hands-on approach than some other courses, although a level of comfort with abstract, numerical thinking is required.</p>
+                      <button class="btn btn-secondary flip-button">Back</button>
+                  </div>
+              </div>
+            </div>
+            <!-- Web Design -->
+            <div class="course-tile">
+              <div class="course-card">
+                  <div class="card course-front">
+                      <img class="card-img-top mx-auto d-block" src="./images/course4.jpg" alt="Abstract image of components of a webpage.">
+                      <h4>Web Design and Development</h4>
+                      <p>&frac12 Credit</p>
+                      <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                  </div>
+                  <div class="card course-back">
+                      <p>More information about Web Design and Development...</p>
+                      <button class="btn btn-secondary flip-button">Back</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Level 2 -->
+    <div class="container-fluid mt-4 bg-dark text-secondary py-5 text-center">
+      <div class="row">
+          <div class="col-lg-6 mx-auto">
+              <h1 class="display-5 fw-bold text-white">Level 2 Courses</h1>
+              <p class="fs-5 mb-4">
+                Level 2 courses are designed to build on the fundamentals of coding
+                learned in Level 1 courses. Students will learn more advanced
+                programming concepts and build more sophisticated pojects with
+                a focus on real-world use cases. Design thinking and advanced
+                problem-solving are emphasized.
+              </p>
+          </div>
+      </div>
+    </div>
+
+    <!-- Level 2 Course Cards -->
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+          <!-- Object Oriented Programming -->
+          <div class="course-tile">
+              <div class="course-card">
+                  <div class="card course-front">
+                      <img class="card-img-top mx-auto d-block" src="./images/oop.jpg" alt="A python drinking coffee">
+                      <h4>Object-Oriented Programming</h4>
+                      <p>1 Credit</p>
+                      <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                  </div>
+                  <div class="card course-back">
+                      <p>This course introduces students to the nuances of the Java programming language, Object-Oriented Programming, Algorithms, Program Analysis, and more. Content will parallel that of an intro-level university CS course, thus students should have a genuine interest in CS and be willing to commit the appropriate amount of time to master the techniques taught. Students will be assessed by a combination of written assessment and coding projects.</p>
+                      <button class="btn btn-secondary flip-button">Back</button>
+                  </div>
+              </div>
+          </div>
+          <!-- Robotics -->
+          <div class="course-tile">
+            <div class="course-card">
+                <div class="card course-front">
+                    <img class="card-img-top mx-auto d-block" src="./images/robotics.jpg" alt="A robot wearing a red quaker hat">
+                    <h4>Robotics</h4>
+                    <p>1 Credit</p>
+                    <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                </div>
+                <div class="card course-back">
+                    <p>This CS level-2 year-long major will investigate topics in responsive and autonomous technology. Special attention will be paid to engineering and design principles, techniques in 3D modeling, and computational thinking applied to hardware and mechanical design. A broad approach to the field of robotics will be taken in this non-competitive course which challenges students to become independent thinkers and builders. Successful completion of any level-1 course is required. Students who complete Physical Computing are especially well-suited for this course.</p>
+                    <button class="btn btn-secondary flip-button">Back</button>
+                </div>
+            </div>
+          </div>
+          <!-- WebUX -->
+          <div class="course-tile">
+            <div class="course-card">
+                <div class="card course-front">
+                    <img class="card-img-top mx-auto d-block" src="./images/webux.jpg" alt="Glowing globe surrounded by colorful streaks">
+                    <h4>Web and the User Experience</h4>
+                    <p>1 Credit</p>
+                    <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                </div>
+                <div class="card course-back">
+                    <p>This course will investigate the development of web-based technologies with
+                       an emphasis on “full stack” development, combining both algorithmic integrity
+                       and its impact on the user. Students will be challenged to consider design 
+                       principles alongside data and server architecture, computational efficiency, 
+                       and safety and security. Students who complete Web Design and Development 
+                       and/or creative coding are especially well-suited for this course.</p>
+                    <button class="btn btn-secondary flip-button">Back</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Level 3 -->
+    <div class="container-fluid mt-4 bg-dark text-secondary py-5 text-center">
+      <div class="row">
+          <div class="col-lg-6 mx-auto">
+              <h1 class="display-5 fw-bold text-white">Level 3 Courses</h1>
+              <p class="fs-5 mb-4">
+                Level 3 courses are the most advanced CS courses
+                available to students at Friends. Students will be given a great
+                deal of liberty to research, design, and build projects reflective
+                of their own interests.
+              </p>
+          </div>
+      </div>
+    </div>
+
+     <!-- Level 3 Course Cards -->
+     <div class="container">
+      <div class="row d-flex justify-content-center">
+          <!-- Advanced Topics in CS -->
+          <div class="course-tile">
+            <div class="course-card">
+                <div class="card course-front">
+                    <img class="card-img-top mx-auto d-block" src="./images/advtop.jpg" alt="A quaker cat on a rocket ship">
+                    <h4>Advanced Topics</h4>
+                    <p>1 Credit</p>
+                    <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                </div>
+                <div class="card course-back">
+                    <p>This level-3 year-long major course will cover a range of topics in computer science, building off of level-2 themes. Possible areas of study include algorithm design, web and mobile technologies, AI, and others. Curriculum for this course will vary on an annual basis and students may be eligible to retake this course at the discretion of the instructor.</p>
+                    <button class="btn btn-secondary flip-button">Back</button>
+                </div>
+            </div>
+          </div>
+          <!-- Capstone Design -->
+          <div class="course-tile">
+            <div class="course-card">
+                <div class="card course-front">
+                    <img class="card-img-top mx-auto d-block" src="./images/capstone.jpg" alt="A quaker hardhat on architects sketches">
+                    <h4>Capstone Design</h4>
+                    <p>1 Credit</p>
+                    <button class="btn btn-outline-info btn-lg px-4 flip-button">Learn More</button>
+                </div>
+                <div class="card course-back">
+                    <p>This course is open to any senior having completed at least Level 1. Prior to admission, students must present the instructor with a proposal for a solution to a social, economic, political, academic, or other problem. Using the Agile Framework, students will work throughout the course to develop and prototype their solution. Supervised access to Maker Space resources will be provided. The year culminates with a presentation of the finished products to a wider audience. Grading is based on the success of the product and presentation as well as meeting self-set goals across the duration of the course.</p>
+                    <button class="btn btn-secondary flip-button">Back</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+  <footer class="bg-dark text-light text-center py-3 footer">
+    <p>&copy; 2023 Friends School of Baltimore. All rights reserved.</p>
+    <p><strong>This site designed in part by AI. </strong><a href="#">Learn More</a></p>
+  </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('.flip-button').click(function() {
+                $(this).closest('.course-card').toggleClass('flip');
+            });
+        });
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
